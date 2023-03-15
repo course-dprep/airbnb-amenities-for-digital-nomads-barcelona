@@ -1,8 +1,10 @@
 # Load merged data 
 #load("./gen/data-preparation/src/data-preparation/listings_joined.csv")
 
+library(dplyr)
+
 # Missing values
-## Beds: remove 274 NA's
+## Beds: remove 273 NA's
 listings_joined <- listings_joined %>% filter(!is.na(listings_joined$beds))
 
 ## Bedrooms: NA's -> 0 (studio)
@@ -28,11 +30,18 @@ listings_joined <- listings_joined %>%
 
 View(listings_joined)
 
-## Character -> numeric
-### Bathrooms
-glimpse(listings_joined$bathrooms_text)
-unique(listings_joined$bathrooms_text)
-unique(listings_joined$room_type)
+##strip text
+listings_joined <- listings_joined %>% 
+  mutate(baths_numeric = str_extract(listings_joined$bathrooms_text, "\\d+\\.?\\d*")) %>% 
+
+
+#Character to numeric + round
+listings_joined <- listings_joined %>% 
+  mutate(baths_numeric2 = round(as.numeric(baths_numeric), 0)) # or as.double(my_col)
+
+#Changing the 50 NA's to value 1
+listings_joined <- listings_joined %>% 
+  mutate(baths_numeric2 = ifelse(is.na(baths_numeric2), 1, baths_numeric2))
 
 ## Amenities
 
