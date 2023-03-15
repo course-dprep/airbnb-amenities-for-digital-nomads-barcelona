@@ -47,5 +47,8 @@ listings_sorted <- subset(listings_unsorted, select = c(id, name, neighbourhood,
 # Download created csv files
 write_csv(listing_type, "listing_type.csv")
 write_csv(listings_sorted, "listings_sorted.csv")
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
