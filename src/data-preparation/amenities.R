@@ -1,7 +1,3 @@
-library(tidyr)
-library(stringr)
-library(tibble)
-library(dplyr)
 
 amenities_df <- listings_joined
 

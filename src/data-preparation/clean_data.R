@@ -1,7 +1,6 @@
 # Load merged data 
 #load("./gen/data-preparation/src/data-preparation/listings_joined.csv")
 
-library(dplyr)
 
 # Missing values
 ## Beds: remove 273 NA's
@@ -32,7 +31,7 @@ View(listings_joined)
 
 ##strip text
 listings_joined <- listings_joined %>% 
-  mutate(baths_numeric = str_extract(listings_joined$bathrooms_text, "\\d+\\.?\\d*")) %>% 
+  mutate(baths_numeric = str_extract(listings_joined$bathrooms_text, "\\d+\\.?\\d*"))  
 
 
 #Character to numeric + round
@@ -48,4 +47,4 @@ listings_joined <- listings_joined %>%
 
 
 # Save cleaned data
-save(df_cleaned,file="./gen/data-preparation/output/data_cleaned.RData")
+#save(df_cleaned,file="./gen/data-preparation/output/data_cleaned.RData")
