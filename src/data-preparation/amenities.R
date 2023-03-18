@@ -1,3 +1,7 @@
+library(tidyr)
+library(stringr)
+library(tibble)
+library(dplyr)
 
 amenities_df <- listings_joined
 
@@ -20,6 +24,7 @@ amenity_counts <- amenities_df %>%
   group_by(amenities) %>% 
   summarize(count = n()) %>% 
   arrange(desc(count))
+
 head(amenity_counts)
 
 #filter for short stays
@@ -31,6 +36,7 @@ amenity_counts_short <- amenity_counts_short %>%
   group_by(amenities) %>% 
   summarize(count = n()) %>% 
   arrange(desc(count))
+
 head(amenity_counts_short)
 
 #filter for long stays
@@ -45,23 +51,25 @@ amenity_counts_long <- amenity_counts_long %>%
 head(amenity_counts_long)
 
 
-#filter for counts that are 10 or greater
-amenity_counts_long <- amenity_counts_long %>% 
-  filter(count>=10)
-
-amenity_counts_short <- amenity_counts_short %>% 
-  filter(count>=10)
-
 #join two df with counts
 counts_long_short <- inner_join(amenity_counts_long, amenity_counts_short, by = c("amenities"), suffix = c("_long","_short"))
 
+#filtering for the first 100 amenities
+counts_long_short <- counts_long_short %>% slice(1:100)
+
+common_amenities <- counts_long_short$amenities
+
+#filter amenities of amenities_df such that only the first 100 of counts_long_short maintain
+filtered_amenities_df <- amenities_df %>%
+  filter(amenities %in% common_amenities)
+
+#from long to wide dataframe
+wide_df <- pivot_wider(filtered_amenities_df, 
+                       id_cols = c("id", "listing_type"), 
+                       names_from = "amenities", 
+                       values_from = "amenities", 
+                       values_fn = function(x) ifelse(length(x) > 0, "yes", "no"), 
+                       values_fill = "no", 
+                       names_prefix = "has_")
 
 
-#from long to wide format
-amenities_df$value <- "yes"
-
-wide_amenities <- amenities_df%>% 
-  pivot_wider(names_from = amenities, values_from = value)
-
-amenities$value <- "yes"
-wide_amenities_filled <- replace_na(wide_amenities, replace = list(NULL = "no"))
