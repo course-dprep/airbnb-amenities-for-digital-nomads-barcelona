@@ -55,7 +55,8 @@ counts_long_short <- counts_long_short %>% slice(1:100)
 common_amenities <- counts_long_short$amenities
 
 # remove whitespace in amenities_df
-amenities_df <- gsub(" ", "-", amenities_df)
+#amenities_df <- gsub(" ", "-", amenities_df)
+#common_amenities <- gsub(" ", "-", common_amenities)
 
 #filter amenities of amenities_df such that only the first 100 of counts_long_short maintain
 filtered_amenities_df <- amenities_df %>%
