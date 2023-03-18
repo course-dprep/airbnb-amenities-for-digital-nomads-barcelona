@@ -54,6 +54,9 @@ counts_long_short <- counts_long_short %>% slice(1:100)
 
 common_amenities <- counts_long_short$amenities
 
+# remove whitespace in amenities_df
+amenities_df <- gsub(" ", "-", amenities_df)
+
 #filter amenities of amenities_df such that only the first 100 of counts_long_short maintain
 filtered_amenities_df <- amenities_df %>%
   filter(amenities %in% common_amenities)
@@ -77,6 +80,8 @@ wide_df <- pivot_wider(filtered_amenities_df,
                        names_prefix = "has_")
 
 
+
+
 # Create a new dataframe with only first 100 amenities
 counts_100 <-  counts_long_short %>% slice(1:100)
 
@@ -92,5 +97,6 @@ counts_100 <- counts_100 %>%
 # Conduct a one-sample t-test for each amenity and store the results in a new column called "p_value"
 counts_100 <- counts_100 %>%
   mutate(count_diff = count_long - count_short)
+
 
 
