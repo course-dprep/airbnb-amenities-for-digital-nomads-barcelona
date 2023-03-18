@@ -27,8 +27,6 @@ listings_joined <- listings_joined %>%
 listings_joined <- listings_joined %>% 
   mutate(room_shared = ifelse(grepl("shared", room_type, ignore.case = TRUE), "shared", "private"))
 
-View(listings_joined)
-
 ##strip text
 listings_joined <- listings_joined %>% 
   mutate(baths_numeric = str_extract(listings_joined$bathrooms_text, "\\d+\\.?\\d*"))  
