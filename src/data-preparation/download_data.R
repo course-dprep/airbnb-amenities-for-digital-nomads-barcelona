@@ -4,6 +4,7 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(tibble)
+library(magrittr)
 
 
 ## Calendar.csv.gz
