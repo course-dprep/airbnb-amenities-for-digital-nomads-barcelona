@@ -1,7 +1,6 @@
-amenities_df <- listings_joined
 
-#subset only amenities column
-amenities_df <- subset(amenities_df, select = c(amenities, id, listing_type))
+#subset only amenities column and store in amenities_df
+amenities_df <- subset(listings_joined, select = c(amenities, id, listing_type))
 
 # Split the amenities column into separate rows
 amenities_df <- amenities_df %>% 
@@ -43,6 +42,7 @@ amenity_counts_long <- amenity_counts_long %>%
   group_by(amenities) %>% 
   summarize(count = n()) %>% 
   arrange(desc(count))
+
 head(amenity_counts_long)
 
 
@@ -66,3 +66,31 @@ wide_df <- pivot_wider(filtered_amenities_df,
                        values_fn = function(x) ifelse(length(x) > 0, "yes", "no"), 
                        values_fill = "no", 
                        names_prefix = "has_")
+
+# Numeric instead of yes and no 
+wide_df <- pivot_wider(filtered_amenities_df, 
+                       id_cols = c("id", "listing_type"), 
+                       names_from = "amenities", 
+                       values_from = "amenities", 
+                       values_fn = function(x) as.integer(length(x) > 0), 
+                       values_fill = 0, 
+                       names_prefix = "has_")
+
+
+# Create a new dataframe with only first 100 amenities
+counts_100 <-  counts_long_short %>% slice(1:100)
+
+# Add a column for the proportion of listings with each amenity in the long category
+counts_100 <- counts_100 %>%
+  mutate(prop_long = count_long / (count_long + count_short))
+
+# Add a column for the proportion of listings with each amenity in the short category
+counts_100 <- counts_100 %>%
+  mutate(prop_short = count_short / (count_long + count_short))
+
+
+# Conduct a one-sample t-test for each amenity and store the results in a new column called "p_value"
+counts_100 <- counts_100 %>%
+  mutate(count_diff = count_long - count_short)
+
+
