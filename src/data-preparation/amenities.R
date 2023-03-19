@@ -77,12 +77,6 @@ wide_df <- pivot_wider(filtered_amenities_df,
                        values_fill = 0, 
                        names_prefix = "has_")
 
-# Rename variables that give an error in the regression
-wide_df <- wide_df %>%
-  rename("has_AC_split_system" = "has_AC_-_split_type_ductless_system")
-
-#wide_df <- gsub("\", "", wide_df)
-  
 
 # Create counts_100
 counts_100 <-  counts_long_short %>% slice(1:100)
