@@ -20,6 +20,8 @@ amenities_df$amenities <- gsub("/", "", amenities_df$amenities)
 amenities_df$amenities <- gsub(":", "_", amenities_df$amenities)
 amenities_df$amenities <- gsub("+", "", amenities_df$amenities)
 amenities_df$amenities <- str_replace_all(amenities_df$amenities, fixed("+"), "")
+amenities_df$amenities <- str_replace_all(amenities_df$amenities, fixed("("), "")
+amenities_df$amenities <- str_replace_all(amenities_df$amenities, fixed(")"), "")
 
 # Create amenity_counts_(short/long)
 ## Count the frequency of each amenity
