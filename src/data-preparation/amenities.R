@@ -12,10 +12,11 @@ amenities_df$amenities <- gsub("^\\s+|\\s+$|\"", "", amenities_df$amenities)
 ## Remove the square brackets
 amenities_df$amenities <- str_replace_all(amenities_df$amenities, "\\[|\\]","")
 
-## Remove the white spaces
+## Remove the white spaces; - ; \ ; /
 amenities_df$amenities <- gsub(" ", "_", amenities_df$amenities)
-
-#amenities_df$amenities <- gsub("\", "", amenities_df$amenities)
+amenities_df$amenities <- gsub("-", "_", amenities_df$amenities)
+amenities_df$amenities <- gsub("\\\\", "", amenities_df$amenities)
+amenities_df$amenities <- gsub("/", "", amenities_df$amenities)
 
 # Create amenity_counts_(short/long)
 ## Count the frequency of each amenity
