@@ -7,6 +7,6 @@ listings_joined <- inner_join(listings_sorted, listing_type, by = c("id" = "list
 
 ## Save dataframe
 # assume listings_sorted is a dataframe
-write.csv(listings_joined, "listings_joined.csv", row.names = FALSE)
+write_csv(listings_joined, "listings_joined.csv")
 
 
