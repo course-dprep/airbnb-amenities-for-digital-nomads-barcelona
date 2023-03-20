@@ -30,8 +30,8 @@ listings_long <- unique(listings_long$listing_id)
 listings_short <- unique(listings_short$listing_id)
 
 ## Check if length of listings_long + listings_short is similar to total listings
-sum(length(listings_long), length(listings_short)) #6898
-length(unique(calendar$listing_id)) #6898
+sum(length(listings_long), length(listings_short)) 
+length(unique(calendar$listing_id)) 
 
 ## Format the new lists
 
