@@ -1,6 +1,17 @@
 #load("./gen/data-preparation/src/data-preparation/calendar.csv.gz")
 #load("./gen/data-preparation/src/data-preparation/listings.csv.gz")
 
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(tibble)
+library(magrittr)
+library(readr)
+
+calendar <- read_csv("data/dataset1/calendar.csv.gz")
+listings_unsorted <- read_csv("data/dataset2/listings.csv.gz")
+
 # Calendar dataset: creating listings
 ## New column 0-1
 calendar <- calendar %>% mutate(available1 = (as.numeric(!available)))
@@ -45,6 +56,7 @@ listings_sorted <- subset(listings_unsorted, select = c(id, name, neighbourhood,
 
 
 # Download created csv files
-write_csv(listing_type, "listing_type.csv")
-write_csv(listings_sorted, "listings_sorted.csv")
+
+write_csv(listing_type, "gen/data-preparation/output/listing_type.csv")
+write_csv(listings_sorted, "gen/data-preparation/output/listings_sorted.csv")
 
