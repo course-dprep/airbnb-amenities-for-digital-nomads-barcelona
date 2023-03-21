@@ -1,6 +1,18 @@
 # Clean amenities.R
+
+# required packages
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(stringr)
+library(stringi)
+library(magrittr)
+
+#load cleaned data
+listings_joined_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined_cleaned.csv')
+
 ## Subset only amenities column and store in amenities_df
-amenities_df <- subset(listings_joined, select = c(amenities, id, listing_type))
+amenities_df <- subset(listings_joined_cleaned, select = c(amenities, id, listing_type))
 
 ## Split the amenities column into separate rows
 amenities_df <- amenities_df %>% 
@@ -72,6 +84,8 @@ wide_df <- pivot_wider(all_amenities,
                        values_fill = 0, 
                        names_prefix = "has_")
 
+write_csv(wide_df, "../../gen/analysis/input/wide_df.csv")
+
 
 # Dataset: only first 100 amenities
 ## Filtering for the first 100 amenities
@@ -113,6 +127,9 @@ counts_100 <- counts_100 %>%
 ## Add a column for the proportion of listings with each amenity in the short category
 counts_100 <- counts_100 %>%
   mutate(prop_short = count_short / (count_long + count_short))
+
+
+write_csv(counts_100, "../../gen/analysis/input/counts_100.csv")
 
 # Output of this R-file for regression
 ## wide_df

@@ -1,6 +1,12 @@
-# Load merged data 
-#load("./gen/data-preparation/src/data-preparation/listings_joined.csv")
+# required packages
+library(tidyverse)
+library(readr)
+library(stringr)
+library(lubridate)
 
+
+# Load joined data
+listings_joined <- read_csv('../../gen/data-preparation/output/listings_joined.csv')
 
 # Missing values
 ## Beds: remove 273 NA's
@@ -37,12 +43,8 @@ listings_joined <- listings_joined %>%
   mutate(baths_numeric2 = round(as.numeric(baths_numeric), 0)) # or as.double(my_col)
 
 #Changing the 50 NA's to value 1
-listings_joined <- listings_joined %>% 
+listings_joined_cleaned <- listings_joined %>% 
   mutate(baths_numeric2 = ifelse(is.na(baths_numeric2), 1, baths_numeric2))
 
-## Amenities
-
-
-
-# Save cleaned data
-#save(df_cleaned,file="./gen/data-preparation/output/data_cleaned.RData")
+#save cleaned datafile
+write_csv(listings_joined_cleaned, "../../gen/data-preparation/output/listings_joined_cleaned.csv")

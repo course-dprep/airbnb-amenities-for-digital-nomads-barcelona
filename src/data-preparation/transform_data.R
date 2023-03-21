@@ -9,8 +9,10 @@ library(tibble)
 library(magrittr)
 library(readr)
 
-calendar <- read_csv("data/dataset1/calendar.csv.gz")
-listings_unsorted <- read_csv("data/dataset2/listings.csv.gz")
+
+calendar <- read_csv("../../data/dataset1.csv")
+#calendar <- calendar[1:100,]
+listings_unsorted <- read_csv("../../data/dataset2.csv")
 
 # Calendar dataset: creating listings
 ## New column 0-1
@@ -57,6 +59,6 @@ listings_sorted <- subset(listings_unsorted, select = c(id, name, neighbourhood,
 
 # Download created csv files
 
-write_csv(listing_type, "gen/data-preparation/output/listing_type.csv")
-write_csv(listings_sorted, "gen/data-preparation/output/listings_sorted.csv")
+write_csv(listing_type, "../../gen/data-preparation/output/listing_type.csv")
+write_csv(listings_sorted, "../../gen/data-preparation/output/listings_sorted.csv")
 
