@@ -21,7 +21,7 @@ $(OUTPUT)/listings_joined_cleaned.csv: clean_data.R
 	Rscript clean_data.R
 	
 #cleaning amenities before analyzing
-$(DAINPUT)/counts_100.csv $(DAINPUT)/wide_df.csv $(DAINPUT)/wide_df100.csv: amenities2.R
+$(DAINPUT)/counts_100.csv $(DAINPUT)/wide_df.csv $(DAINPUT)/wide_df100.csv $(DAINPUT)/counts_long_short.csv: amenities2.R
 	Rscript amenities2.R
 	
 #$(OUTPUT)/listing_type.csv: src/data-preparation/transform_data.R
