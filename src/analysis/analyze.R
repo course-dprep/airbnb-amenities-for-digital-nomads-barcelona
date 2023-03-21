@@ -10,6 +10,8 @@
 # Save results
 #save(m1,m2,file="./gen/analysis/output/model_results.RData")
 
+# loading in the data
+wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
 
 # FOR FIRST 100 AMENITIES
 # Create list of dependent variables, i.e. all 100 amenities

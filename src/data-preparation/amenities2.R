@@ -115,7 +115,7 @@ wide_df100 <- pivot_wider(filtered_amenities_df100,
                           values_fill = 0, 
                           names_prefix = "has_")
 
-
+write_csv(wide_df100, "../../gen/analysis/input/wide_df100.csv")
 
 # Create counts_100
 counts_100 <-  counts_long_short %>% slice(1:100)
