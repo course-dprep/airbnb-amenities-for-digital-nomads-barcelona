@@ -10,6 +10,11 @@
 # Save results
 #save(m1,m2,file="./gen/analysis/output/model_results.RData")
 
+# required packages
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+
 # loading in the data
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
 
@@ -83,10 +88,11 @@ significant_amenities_positive100 <- data.frame(significant_amenities_positive10
 significant_amenities_negative100 <- data.frame(significant_amenities_negative100)
 
 # Save as lists
-write_csv(significant_amenities_positive100, "significant_amenities_long_100")
-write_csv(significant_amenities_negative100, "significant_amenities_short_100")
+write_csv(significant_amenities_positive100, "../../gen/analysis/output/significant_amenities_long_100")
+write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_short_100")
 
-# FOR ALL AMENITIES        
+  
+wide_df <- read_csv("../../gen/analysis/input/wide_df.csv")
 
 # Create list of dependent variables, i.e. all 1859 amenities
 dep_vars <- names(wide_df[3:10])
