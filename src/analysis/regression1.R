@@ -45,8 +45,13 @@ length(significant_amenities_100)
 
 
 # Create dataframe 
-significant_amenities_negative100 <- data.frame(significant_amenities_100)
+significant_amenities_100 <- data.frame(significant_amenities_100)
 
 # Save as lists
 write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_100")
 
+# Create new dataframe
+#wide_df_significant <- wide_df100 %>% select(c(id, listing_type, significant_amenities_100))
+#wide_df_significant %>% group_by(wide_df_significant[3:22]) %>% filter(listing_type == "long") %>% summarise(long_count = sum())
+
+wide_df_significant %>% group_by(listing_type) %>% summarize()
