@@ -21,8 +21,7 @@ for (dep_var in dep_vars) {
 
 # Create a list with only significant amenities
 ## empty list
-significant_amenities_negative100 <- c()
-significant_amenities_positive100 <- c()
+significant_amenities_100 <- c()
 
 ## loop as before
 for (dep_var in dep_vars) {
@@ -34,20 +33,20 @@ for (dep_var in dep_vars) {
   if (summary$coefficients[2, 4] < 0.05) {
     ### if effect is negative
     if (summary$coefficients[2, 1] < 0) {
-      significant_amenities_negative100 <- c(significant_amenities_negative100, dep_var)
+      significant_amenities_100 <- c(significant_amenities_100, dep_var)
     }
   }
 }
 
 
 # Amenities significantly more available in long listings
-print(significant_amenities_negative100)
-length(significant_amenities_negative100)
+print(significant_amenities_100)
+length(significant_amenities_100)
 
 
 # Create dataframe 
-significant_amenities_negative100 <- data.frame(significant_amenities_negative100)
+significant_amenities_negative100 <- data.frame(significant_amenities_100)
 
 # Save as lists
-write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_long_100")
+write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_100")
 
