@@ -49,5 +49,5 @@ length(significant_amenities_negative100)
 significant_amenities_negative100 <- data.frame(significant_amenities_negative100)
 
 # Save as lists
-write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_short_100")
+write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_long_100")
 
