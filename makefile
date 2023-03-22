@@ -1,5 +1,8 @@
-all: data-preparation analysis
+all: packages data-preparation analysis
 
+packages:
+	Rscript install_packages.R
+	
 data-preparation:
 	make -C src/data-preparation
 

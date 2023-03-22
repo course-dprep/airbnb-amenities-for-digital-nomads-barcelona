@@ -54,11 +54,37 @@ Please follow the installation guides on https://tilburgsciencehub.com
 - Make
     - Installation Guide
     
-To install all necessary packages used in R, run the R script 'install_packages.R', which is added to our repository. Otherwise, install the following packages.
-    
+For R, make sure the following packages are installed (also done automatically when using the makefile to run this project): 
+
+install.packages("tidyverse")
+install.packages("dplyr")
+install.packages("stringr")
+install.packages("tibble")
+install.packages("magrittr")
+install.packages("readr")
+install.packages("lubridate")
+install.packages("stringi")
+install.packages("psych")
+
 ## Running instructions
 
 [Explain to potential users how to run/replicate your workflow. If necessary, touch upon the required input data, which secret credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow.]  
+
+To run the code, follow these instructions:
+
+Fork this repository
+
+Open your command line / terminal and run the following code:
+git clone https://github.com/{your username}/airbnb-price-calculator.git
+Set your working directory to airbnb-price-calculator and run the following command:
+
+make
+
+When make has succesfully run all the code, it will generate a http URL. Copy and paste this URL in your browser to launch the price calculator app.
+
+To clean the data of all raw and unnecessary data files created during the pipeline, run the following code in the command line / terminal:
+
+make clean
 
 ### Data Availability Statements
 [external data listings]

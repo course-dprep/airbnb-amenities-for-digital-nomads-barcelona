@@ -58,7 +58,6 @@ listings_sorted <- subset(listings_unsorted, select = c(id, name, neighbourhood,
 
 
 # Download created csv files
-
 write_csv(listing_type, "../../gen/data-preparation/output/listing_type.csv")
 write_csv(listings_sorted, "../../gen/data-preparation/output/listings_sorted.csv")
 
