@@ -66,7 +66,7 @@ amenity_counts_long <- amenity_counts_long %>%
 
 ## Join two df with counts
 counts_long_short <- inner_join(amenity_counts_long, amenity_counts_short, by = c("amenities"), suffix = c("_long","_short"))
-write_csv(counts_long_short, "../../gen/data-preparation/output/counts_long_short.csv")
+write_csv(counts_long_short, "../../gen/analysis/input/counts_long_short.csv")
 
 ## Create regression subset with all amenities
 amenities <- counts_long_short$amenities

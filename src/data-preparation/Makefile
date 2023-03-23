@@ -2,8 +2,7 @@ DATA = ../../data
 OUTPUT = ../../gen/data-preparation/output
 DAINPUT = ../../gen/analysis/input
 
-all: $(DATA)/dataset1.csv $(DATA)/dataset2.csv $(OUTPUT)/listing_type.csv $(OUTPUT)/listings_sorted.csv $(OUTPUT)/listings_joined.csv $(OUTPUT)/listings_joined_cleaned.csv $(DAINPUT)/counts_100.csv $(DAINPUT)/wide_df.csv $(DAINPUT)/wide_df100.csv
-
+all: $(DATA)/dataset1.csv $(DATA)/dataset2.csv $(OUTPUT)/listing_type.csv $(OUTPUT)/listings_sorted.csv $(OUTPUT)/listings_joined.csv $(OUTPUT)/listings_joined_cleaned.csv $(DAINPUT)/counts_100.csv $(DAINPUT)/wide_df.csv $(DAINPUT)/wide_df100.csv $(DAINPUT)/counts_long_short.csv
 # Download data
 $(DATA)/dataset1.csv $(DATA)/dataset2.csv: download_data.R 
 	Rscript download_data.R 
