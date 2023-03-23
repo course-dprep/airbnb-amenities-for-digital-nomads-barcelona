@@ -1,4 +1,4 @@
-# required packages
+# Load packages
 library(tidyverse)
 library(readr)
 library(dplyr)
@@ -6,7 +6,7 @@ library(stringr)
 library(stringi)
 library(magrittr)
 
-# Load cleaned data
+# Load data
 listings_joined_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined_cleaned.csv')
 
 # Clean amenities.R
@@ -114,21 +114,22 @@ wide_df100 <- pivot_wider(filtered_amenities_df100,
                           values_fill = 0, 
                           names_prefix = "has_")
 
-write_csv(wide_df100, "../../gen/analysis/input/wide_df100.csv")
-
 # Create counts_100
 counts_100 <-  counts_long_short %>% slice(1:100)
 
+# Count total number of long and short listings
+long_listings <- wide_df100 %>% filter(listing_type == "long") 
+short_listings <- wide_df100 %>% filter(listing_type == "short") 
+
 ## Add a column for the proportion of listings with each amenity in the long category
 counts_100 <- counts_100 %>%
-  mutate(prop_long = count_long / (count_long + count_short))
+  mutate(prop_long = count_long / nrow(long_listings))
 
 ## Add a column for the proportion of listings with each amenity in the short category
 counts_100 <- counts_100 %>%
-  mutate(prop_short = count_short / (count_long + count_short))
+  mutate(prop_short = count_short / nrow(short_listings))
 
+# Store data
+write_csv(wide_df100, "../../gen/analysis/input/wide_df100.csv")
 write_csv(counts_100, "../../gen/analysis/input/counts_100.csv")
 
-# Output of this R-file for regression
-## wide_df
-## counts_100

@@ -1,9 +1,9 @@
-# required packages
+# Load packages
 library(tidyverse)
 library(dplyr)
 library(tidyr)
 
-# loading in the data
+# Load data
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
 
 # Create list of dependent variables, i.e. all 100 amenities
@@ -36,14 +36,12 @@ for (dep_var in dep_vars) {
   }
 }
 
-
 # Amenities significantly more available in long listings
 print(significant_amenities_100)
 length(significant_amenities_100)
 
-
 # Create dataframe 
 df_significant_amenities_100 <- data.frame(significant_amenities_100)
 
-# Save datafile 
+# Store data
 write_csv(df_significant_amenities_100, "../../gen/analysis/output/df_significant_amenities_100.csv")
