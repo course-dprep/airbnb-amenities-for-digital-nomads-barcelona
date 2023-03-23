@@ -1,6 +1,3 @@
-# Libraries
-library(tidyverse)
-
 # Load data
 df_significant_amenities_100 <- read_csv("../../gen/analysis/output/df_significant_amenities_100.csv")
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
@@ -16,16 +13,5 @@ significant_amenities_100_cleaned <- lapply(df_significant_amenities_100$signifi
 # Select only significant amenities in counts_100
 counts <- counts_100 %>% filter(amenities %in% significant_amenities_100_cleaned)
 
-# Save as dataframe
+# Store data
 write_csv(counts, "../../gen/analysis/input/counts.csv")
-
-
-#short_count <- wide_df %>%  filter(listing_type == "short")  %>% count(significant_amenities_100_cleaned)
-#short_count
-#short_count0 <- short_count %>% filter(has_Essentials == 0) 
-#short_count0$n
-#short_count1 <- short_count %>% filter(has_Essentials == 1) 
-#short_count1$n
-#short_proportion <- short_count0$n/sum(short_count1$n, short_count0$n)
-#wide_df %>%  filter(listing_type == "long") %>% count(has_Essentials)
-

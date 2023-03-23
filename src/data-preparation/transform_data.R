@@ -1,6 +1,4 @@
-#load("./gen/data-preparation/src/data-preparation/calendar.csv.gz")
-#load("./gen/data-preparation/src/data-preparation/listings.csv.gz")
-
+# Load packages
 library(tidyverse)
 library(dplyr)
 library(tidyr)
@@ -9,7 +7,7 @@ library(tibble)
 library(magrittr)
 library(readr)
 
-
+# Load data
 calendar <- read_csv("../../data/dataset1.csv")
 #calendar <- calendar[1:100,]
 listings_unsorted <- read_csv("../../data/dataset2.csv")
@@ -56,8 +54,7 @@ listing_type <- tibble(listing_id = c(listings_long, listings_short),
 ## creating a subset of important columns 
 listings_sorted <- subset(listings_unsorted, select = c(id, name, neighbourhood, property_type, room_type, accommodates, bathrooms_text, bedrooms, beds, amenities, price, minimum_nights, maximum_nights))
 
-
-# Download created csv files
+# Store data
 write_csv(listing_type, "../../gen/data-preparation/output/listing_type.csv")
 write_csv(listings_sorted, "../../gen/data-preparation/output/listings_sorted.csv")
 
