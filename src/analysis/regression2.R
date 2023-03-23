@@ -1,3 +1,10 @@
+# required packages
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+
+wide_df <- read_csv("../../gen/analysis/input/wide_df.csv")
+
 # Create list of dependent variables, i.e. all 1859 amenities
 dep_vars <- names(wide_df[3:10])
 
