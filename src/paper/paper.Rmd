@@ -11,14 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r include=FALSE}
-# Load previous code
+# Load libraries
 library(tidyverse)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 
+# Load data
+counts <- read_csv("../../gen/analysis/input/counts.csv")
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
-dep_vars <- names(wide_df100[3:102])
 
 for (dep_var in dep_vars) {
   str <- paste(dep_var, "~ listing_type")  

@@ -46,4 +46,4 @@ length(significant_amenities_100)
 df_significant_amenities_100 <- data.frame(significant_amenities_100)
 
 # Save datafile 
-write_csv(df_significant_amenities_100, "../../gen/analysis/output/df_significant_amenities_100")
+write_csv(df_significant_amenities_100, "../../gen/analysis/output/df_significant_amenities_100.csv")
