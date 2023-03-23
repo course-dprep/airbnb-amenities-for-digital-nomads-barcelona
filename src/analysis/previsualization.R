@@ -16,7 +16,7 @@ significant_amenities_100_cleaned <- lapply(df_significant_amenities_100$signifi
 counts <- counts_100 %>% filter(amenities %in% significant_amenities_100_cleaned)
 
 # Save as dataframe
-write_csv(counts, "../../gen/analysis/input/counts")
+write_csv(counts, "../../gen/analysis/input/counts.csv")
 
 
 #short_count <- wide_df %>%  filter(listing_type == "short")  %>% count(significant_amenities_100_cleaned)
