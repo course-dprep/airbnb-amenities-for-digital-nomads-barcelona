@@ -81,9 +81,6 @@ Before the detailed running instructions, we want to inform you that running the
 
 0.  Optional step: Fork this repository
 
-```{=html}
-<!-- -->
-```
 1.  Open your command line / terminal (preferably in R) and run the following code:
 
 ```{=html}
