@@ -1,4 +1,4 @@
-# Load libraries
+# Load packages
 library(tidyverse)
 library(dplyr)
 library(tidyr)
@@ -7,7 +7,7 @@ library(tibble)
 library(magrittr)
 library(readr)
 
-# Load datasets
+# Load data
 ## Calendar.csv.gz
 download.file('http://data.insideairbnb.com/spain/catalonia/barcelona/2022-12-11/data/calendar.csv.gz', '../../data/dataset1.csv')
 

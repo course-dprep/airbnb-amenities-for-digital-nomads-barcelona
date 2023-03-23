@@ -1,11 +1,11 @@
-# required packages
+# Load packages
 library(tidyverse)
 library(readr)
 library(stringr)
 library(lubridate)
 
 
-# Load joined data
+# Load data
 listings_joined <- read_csv('../../gen/data-preparation/output/listings_joined.csv')
 
 # Missing values
@@ -48,5 +48,5 @@ listings_joined_cleaned <- listings_joined %>%
 
 listings_joined_cleaned <- data.frame(listings_joined_cleaned)
 
-#save cleaned datafile
+# Store data
 write_csv(listings_joined_cleaned, '../../gen/data-preparation/output/listings_joined_cleaned.csv')

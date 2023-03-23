@@ -1,14 +1,12 @@
-# required package
-install.packages("psych")
+# Load packages
 library(psych)
 
+# Load data
+read_csv("../../gen/analysis/input/df_factor_analysis.csv")
 
-#from long-to-wide
-#read_csv("../../gen/analysis/input/df_factor_analysis.csv")
-
+from long-to-wide
 wide_df_1 <- wide_df %>% 
   subset()
-
 
 
 df_factors <- df_factor_analysis[, c("count_short", "count_long")]
@@ -18,8 +16,6 @@ print(fa_obj, cut = 0.3, sort = TRUE, digits = 2)
 
 
 #PCA
-
-
 amenities_matrix <- as.matrix(wide_df)
 amenities_matrix_numeric <- apply(amenities_matrix, 2, as.numeric)
 amenities_matrix_scaled <- scale(amenities_matrix_numeric)
@@ -36,3 +32,4 @@ amenities_counts <- wide_df %>%
 # the resulting dataframe "amenities_counts" will have two rows (short and long listing types) 
 # and each column will represent a specific amenity with the count of its presence for each listing type.
 
+# Store data

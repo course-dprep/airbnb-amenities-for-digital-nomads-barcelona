@@ -17,7 +17,6 @@ listings_unsorted <- read_csv("../../data/dataset2.csv")
 calendar <- calendar %>% mutate(available1 = (as.numeric(!available)))
 
 ## Create a function to count consecutive ranges of 1
-
 ### Create a new column 'consecutive_count' and initialize it to zero
 calendar$consecutive_count <- 0
 
