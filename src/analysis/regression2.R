@@ -1,8 +1,9 @@
-# required packages
+# Load packages
 library(tidyverse)
 library(dplyr)
 library(tidyr)
 
+# Load data
 wide_df <- read_csv("../../gen/analysis/input/wide_df.csv")
 
 # Create list of dependent variables, i.e. all 1859 amenities
@@ -66,7 +67,7 @@ for (dep_var in dep_vars) {
 # print(significant_amenities_positive)
 # length(significant_amenities_positive)
 
-# Save as lists
+# Store data
 #write_csv(significant_amenities_positive, "significant_amenities_long")
 #write_csv(significant_amenities_negative, "significant_amenities_short")
 

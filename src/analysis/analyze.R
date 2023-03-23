@@ -10,12 +10,12 @@
 # Save results
 #save(m1,m2,file="./gen/analysis/output/model_results.RData")
 
-# required packages
+# Load packages
 library(tidyverse)
 library(dplyr)
 library(tidyr)
 
-# loading in the data
+# Load data
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
 
 # FOR FIRST 100 AMENITIES

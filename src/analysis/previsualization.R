@@ -1,3 +1,6 @@
+# Load packages
+library(tidyverse)
+
 # Load data
 df_significant_amenities_100 <- read_csv("../../gen/analysis/output/df_significant_amenities_100.csv")
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")

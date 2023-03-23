@@ -1,8 +1,9 @@
-counts_long_short <- read_csv("../../gen/data-preparation/output/counts_long_short.csv")
-
+# Load packages
 library(dplyr)
 
-# loading in data
+# Load data
+counts_long_short <- read_csv("../../gen/data-preparation/output/counts_long_short.csv")
+
 # subset for short-term listings
 df_short <- subset(wide_df, listing_type == "short")
 
@@ -120,6 +121,8 @@ fa <- fa(df_factors_short, nfactors = 2, rotate = "varimax")
 
 # View the results
 print(fa, sort = TRUE)
+
+# Store data
 
 
                           
