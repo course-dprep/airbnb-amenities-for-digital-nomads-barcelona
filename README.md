@@ -1,6 +1,6 @@
 # Shifting Demand for Airbnb Amenities among Digital Nomads
 
-The objective of this project is to examine the Airbnb market of Barcelona, with a focus on identifying amenities that are most important among digital nomads. This project aims to provide insights into how landlords can make their apartments more attractive for long-term rentals by for example digital nomals by prioritizing these amenities.
+The objective of this project is to examine the Airbnb market of Barcelona, with a focus on identifying amenities that are most important among digital nomads. This project aims to provide insights into how landlords can make their listings more attractive for long-term rentals by for example digital nomals by prioritizing these amenities.
 
 ## Research motivation
 
@@ -34,7 +34,8 @@ To address our research question, we investigated the difference between long-te
     │   └── paper
     └── src
         ├── analysis
-        │   ├── analyze.R
+        │   ├── regression1.R
+        │   ├── previsualization.R
         │   └── update_input.R    
         ├── data-preparation
         │   ├── download_data
@@ -44,6 +45,7 @@ To address our research question, we investigated the difference between long-te
         │   └── update_input.R
         └── paper
         │   ├── paper.tex
+        │   ├── paper.rmd
         │   └── tables.R
         └── clean-up.R    
     ├── README.md
@@ -126,4 +128,4 @@ To clean all the unnecessary data files that were created in this project pipeli
 
 ## About
 
-This respository was made by Lisa Holling and Roos van Sambeek and was commissioned by Hannes Datta, proffesor at Tilburg University. This project was part of the course 'Data Preparation and Workflow Management'.
+This respository was made by [Lisa Holling](https://github.com/Lisa-Holling) and [Roos van Sambeek](https://github.com/Roosvansambeek) and was commissioned by Hannes Datta, professor at Tilburg University. This project was part of the course 'Data Preparation and Workflow Management' of the MSc Marketing Analytics.
