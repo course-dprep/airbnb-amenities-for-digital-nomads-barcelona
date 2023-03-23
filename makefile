@@ -1,7 +1,7 @@
 all: packages data-preparation analysis
 
-packages:
-	Rscript install_packages.R
+#packages:
+#	Rscript install_packages.R
 	
 data-preparation:
 	make -C src/data-preparation
@@ -11,4 +11,3 @@ analysis: data-preparation
 	
 clean: 
 	find . -type f -name "*.csv" -delete
-	find . -type f -name "*.csv.gz" -delete
