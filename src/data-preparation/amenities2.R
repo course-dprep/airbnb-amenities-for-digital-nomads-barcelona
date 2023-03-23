@@ -1,5 +1,3 @@
-# Clean amenities.R
-
 # required packages
 library(tidyverse)
 library(readr)
@@ -8,8 +6,10 @@ library(stringr)
 library(stringi)
 library(magrittr)
 
-#load cleaned data
+# Load cleaned data
 listings_joined_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined_cleaned.csv')
+
+# Clean amenities.R
 
 ## Subset only amenities column and store in amenities_df
 amenities_df <- subset(listings_joined_cleaned, select = c(amenities, id, listing_type))
@@ -80,8 +80,8 @@ wide_df <- pivot_wider(all_amenities,
                        names_from = "amenities", 
                        values_from = "amenities", 
                        values_fn = function(x) as.integer(length(x) > 0), 
-                       values_fill = 0, 
-                       names_prefix = "has_")
+                       values_fill = 0
+                       ,names_prefix = "has_")
 
 write_csv(wide_df, "../../gen/analysis/input/wide_df.csv")
 
@@ -127,21 +127,8 @@ counts_100 <- counts_100 %>%
 counts_100 <- counts_100 %>%
   mutate(prop_short = count_short / (count_long + count_short))
 
-
 write_csv(counts_100, "../../gen/analysis/input/counts_100.csv")
 
 # Output of this R-file for regression
 ## wide_df
 ## counts_100
-
-
-# Ignore below/don't remove pls :)
-##short_count <- wide_df %>%  filter(listing_type == "short")  %>% count(has_Essentials)
-##short_count
-##short_count0 <- short_count %>% filter(has_Essentials == 0) 
-##short_count0$n
-##short_count1 <- short_count %>% filter(has_Essentials == 1) 
-##short_count1$n
-##short_proportion <- short_count0$n/sum(short_count1$n, short_count0$n)
-##wide_df %>%  filter(listing_type == "long") %>% count(has_Essentials)
-

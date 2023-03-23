@@ -1,4 +1,3 @@
-
 # required packages
 library(tidyverse)
 library(dplyr)
@@ -7,7 +6,6 @@ library(tidyr)
 # loading in the data
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
 
-# FOR FIRST 100 AMENITIES
 # Create list of dependent variables, i.e. all 100 amenities
 dep_vars <- names(wide_df100[3:102])
 
@@ -45,13 +43,7 @@ length(significant_amenities_100)
 
 
 # Create dataframe 
-significant_amenities_100 <- data.frame(significant_amenities_100)
+df_significant_amenities_100 <- data.frame(significant_amenities_100)
 
 # Save as lists
-write_csv(significant_amenities_negative100, "../../gen/analysis/output/significant_amenities_100")
-
-# Create new dataframe
-#wide_df_significant <- wide_df100 %>% select(c(id, listing_type, significant_amenities_100))
-#wide_df_significant %>% group_by(wide_df_significant[3:22]) %>% filter(listing_type == "long") %>% summarise(long_count = sum())
-
-wide_df_significant %>% group_by(listing_type) %>% summarize()
+write_csv(df_significant_amenities_100, "../../gen/analysis/output/df_significant_amenities_100")
