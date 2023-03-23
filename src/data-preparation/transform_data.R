@@ -11,7 +11,7 @@ library(readr)
 
 
 calendar <- read_csv("../../data/dataset1.csv")
-calendar <- calendar[1:100,]
+#calendar <- calendar[1:100,]
 listings_unsorted <- read_csv("../../data/dataset2.csv")
 
 # Calendar dataset: creating listings
