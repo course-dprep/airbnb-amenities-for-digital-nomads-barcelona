@@ -1,0 +1,98 @@
+---
+title: "The importance of amenities in AirBnb's for digital nomads in Barcelona"
+output:
+  html_document:
+    df_print: paged
+date: "2023-03-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+# Load previous code
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
+dep_vars <- names(wide_df100[3:102])
+
+for (dep_var in dep_vars) {
+  str <- paste(dep_var, "~ listing_type")  
+  model <- lm(str, wide_df100)
+  print(summary(model))
+}
+```
+
+# Regression output
+
+In the code below from `regression1.R` we illustrate once again how we obtain our regression output. This output is based in the dataframe `wide_df100` that contains information on all listings id's and the 100 most popular amenities.
+
+```{r}
+# Create a list with only significant amenities
+significant_amenities_100 <- c()
+
+for (dep_var in dep_vars) {
+  str <- paste(dep_var, "~ listing_type")  
+  model <- lm(str, wide_df100)
+  summary <- summary(model)
+  
+  if (summary$coefficients[2, 4] < 0.05) {
+    
+    if (summary$coefficients[2, 1] < 0) {
+      significant_amenities_100 <- c(significant_amenities_100, dep_var)
+    }
+  }
+}
+
+```
+
+The function and loop above returns amenities that are significantly more available in long-term listings compared to short-term listings. It stores this in the list called `significant_amenities_100`. If we print this list, we see the 20 amenities that are thus more available in long-term AirBnb's.
+
+```{r}
+# Amenities significantly more available in long listings
+print(significant_amenities_100)
+
+```
+
+# Plots
+
+We can visualize our results with the use of the ggplot2 package:
+
+```{r}
+# Create dataset for plots
+wide_df_significant <- wide_df100 %>% select(c(id, listing_type, significant_amenities_100))
+
+```
+
+```{r}
+ggplot(data = wide_df_significant,
+       mapping = aes(x = , fill = listing_type))
+
+wide_df_significant %>%
+  filter(listing_type == "long") %>%
+  sum(wide_df_significant[3]) 
+
+wide_df_sign_long <- wide_df_significant %>% filter(listing_type == "long") 
+
+
+wide_df_sign_long[,c(1,3)]
+
+ggplot(data = wide_df_significant , 
+       mapping = aes(x = listing_type, fill = id))
+```
+
+```{r}
+wide_df_significant %>% group_by(listing_type) %>% summarize(total = sum(c(has_Essentials)))
+
+counts_100
+
+```
+
+
+
+
+
