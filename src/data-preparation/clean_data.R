@@ -46,5 +46,7 @@ listings_joined <- listings_joined %>%
 listings_joined_cleaned <- listings_joined %>% 
   mutate(baths_numeric2 = ifelse(is.na(baths_numeric2), 1, baths_numeric2))
 
+listings_joined_cleaned <- data.frame(listings_joined_cleaned)
+
 #save cleaned datafile
-write_csv(listings_joined_cleaned, "../../gen/data-preparation/output/listings_joined_cleaned.csv")
+write_csv(listings_joined_cleaned, '../../gen/data-preparation/output/listings_joined_cleaned.csv')
