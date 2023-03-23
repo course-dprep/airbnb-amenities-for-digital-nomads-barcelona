@@ -1,8 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 # Shifting Demand for Airbnb Amenities among Digital Nomads
 
