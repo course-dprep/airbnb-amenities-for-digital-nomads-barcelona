@@ -1,4 +1,4 @@
-all: packages data-preparation analysis
+all: data-preparation analysis
 
 #packages:
 #	Rscript install_packages.R
