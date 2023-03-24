@@ -1,5 +1,7 @@
 # Load packages
 library(tidyverse)
+library(readr)
+library(stringr)
 
 # Load data
 df_significant_amenities_100 <- read_csv("../../gen/analysis/output/df_significant_amenities_100.csv")
