@@ -4,10 +4,10 @@ library(dplyr)
 library(tidyr)
 
 # Load data
-wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
+wide_df2_100 <- read_csv("../../gen/analysis/input/wide_df2_100.csv")
 
 # Create list of dependent variables, i.e. all 100 amenities
-dep_vars <- names(wide_df100[3:102])
+dep_vars <- names(wide_df2_100[3:102])
 
 # Create a list with only significant amenities
 ## empty list
@@ -16,7 +16,7 @@ significant_amenities_100_2 <- c()
 ## loop over each dependent variable
 for (dep_var in dep_vars) {
   str <- paste(dep_var, "~ listing_type")  
-  model <- lm(str, wide_df100)
+  model <- lm(str, wide_df2_100)
   summary <- summary(model)
   
   ## check for which amenities p < 0.05 (significant)

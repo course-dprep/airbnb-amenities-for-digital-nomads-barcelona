@@ -85,6 +85,7 @@ wide_df <- pivot_wider(all_amenities,
 
 write_csv(wide_df, "../../gen/analysis/input/wide_df.csv")
 
+
 # Dataset: only first 100 amenities
 ## Filtering for the first 100 amenities
 counts_long_short100 <- counts_long_short %>% slice(1:100)
