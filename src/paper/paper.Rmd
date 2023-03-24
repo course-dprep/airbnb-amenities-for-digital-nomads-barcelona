@@ -20,7 +20,10 @@ library(ggplot2)
 
 # Load data
 counts <- read_csv("../../gen/analysis/input/counts.csv")
+counts2 <- read_csv("../../gen/analysis/input/counts2.csv")
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
+#listing_type <- 
+#listing_type2 <- 
 ```
 
 # Regression output
@@ -30,8 +33,12 @@ In the code below from `regression1.R` we illustrate once again how we obtain ou
 
 In total we have this many short-listings and longs-listings:
 ```{r}
-length(listings_short)
-length(listings_long)
+listing_type_long <- listing_type %>% filter(listing_type == "long") 
+print(c("Long-listings:", length(listing_type_long$listing_type)))
+
+listing_type_short <- listing_type %>% filter(listing_type == "short") 
+print(c("Short-listings:", length(listing_type_short$listing_type)))
+
 
 ```
 
@@ -69,13 +76,16 @@ For our second regression, `regression2.R`, we obtained our regression output wi
 
 In total we have this many short-listings and longs-listings:
 ```{r}
-length(listings_short2)
-length(listings_long2)
+listing_type_long2 <- listing_type2 %>% filter(listing_type == "long") 
+print(c("Long-listings:", length(listing_type_long2$listing_type)))
+
+listing_type_short2 <- listing_type2 %>% filter(listing_type == "short") 
+print(c("Short-listings:", length(listing_type_short2$listing_type)))
 
 ```
 
 
-The same function and loop as with regression1 returns amenities that are significantly more available in long-term listings compared to short-term listings, but stores this in the list called `significant_amenities_100_2`. If we print this list, we see the *20** amenities that are thus more available in long-term AirBnb's (>56 days).
+The same function and loop as with regression1 returns amenities that are significantly more available in long-term listings compared to short-term listings, but stores this in the list called `significant_amenities_100_2`. If we print this list, we see the 19 amenities that are thus more available in long-term AirBnb's (>56 days).
 
 ```{r}
 print(significant_amenities_100_2)
@@ -107,8 +117,31 @@ ggplot(data = counts, aes(x = reorder(amenities, -prop_long), decreasing = TRUE)
 
 ```
 
+## Regression2
+We can visualize our results with the use of the `ggplot2` package. 
+The plot below contains the 19 amenities that are more available in long-term listings. It shows the **proportion** of AirBnB's (both long-term and short-term listings) that contain these amenities. 
 
+```{r echo=FALSE}
+# Data input
+ggplot(data = counts2, aes(x = reorder(amenities, -prop_long), decreasing = TRUE)) +
+  
+# Barplot for short-term and long-term  
+  geom_bar(aes(y = prop_long, fill = "Long-term"), position = "dodge2", stat = "identity") +
+  geom_bar(aes(y = prop_short, fill = "Short-term"), position = "dodge2", stat = "identity") +
+  
+# Theme and text
+  scale_fill_manual(values = c("lightcoral","brown4")) +
+  labs(title = "Proportion of AirBnB listings containing amenities",
+       x = "Amenities",
+       y = "Proportion",
+       fill = "") +
+  theme_classic() + 
+  theme(axis.text.x = element_text(angle = 50, hjust = 1)) + 
+  scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2))
 
+```
+
+# Discussion
 
 
 
