@@ -8,7 +8,7 @@ library(magrittr)
 library(readr)
 
 # Load data
-calendar_updated <- read_csv("../../gen/data-preparation/input/calendar_updated.csv.gz")
+calendar_updated <- read_csv("../../gen/data-preparation/input/calendar_updated.csv")
 listings_unsorted <- read_csv("../../data/dataset2.csv")
 
 # Regression

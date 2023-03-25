@@ -49,4 +49,4 @@ listings_joined2_cleaned <- listings_joined2 %>%
 listings_joined2_cleaned <- data.frame(listings_joined2_cleaned)
 
 # Store data
-write_csv(listings_joined2_cleaned, '../../gen/data-preparation/output/listings_joined2_cleaned.csv')
+write_csv(listings_joined2_cleaned, '../../gen/data-preparation/output/listings_joined3_cleaned.csv')

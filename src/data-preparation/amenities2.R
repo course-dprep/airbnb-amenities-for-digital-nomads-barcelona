@@ -7,7 +7,7 @@ library(stringi)
 library(magrittr)
 
 # Load data
-listings_joined2_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined2_cleaned.csv')
+listings_joined2_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined3_cleaned.csv')
 
 # Clean amenities.R
 
@@ -83,7 +83,7 @@ wide_df <- pivot_wider(all_amenities,
                        values_fill = 0
                        ,names_prefix = "has_")
 
-write_csv(wide_df, "../../gen/analysis/input/wide_df.csv")
+write_csv(wide_df, "../../gen/analysis/input/wide_df2.csv")
 
 
 # Dataset: only first 100 amenities
