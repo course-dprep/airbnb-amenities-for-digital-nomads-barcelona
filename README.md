@@ -1,4 +1,4 @@
-# Shifting Demand for Airbnb Amenities among Digital Nomads
+# Demand for specific Airbnb Amenities among Digital Nomads
 
 The objective of this project is to examine the Airbnb market of Barcelona, with a focus on identifying amenities that are most important among digital nomads. The results of this project aim to provide Airbnb landlords with insights into how they can make their apartments more appealing for long-term rentals by digital nomads, by prioritizing specific amenities.
 
@@ -89,16 +89,16 @@ To clean all the unnecessary data files that were created in this project pipeli
 
 ## References
 
--   Airbnb. (2021, 27 januari). Digital nomads find the perfect solution to work and live remotely while traveling the globe. Airbnb for Work. <https://www.Airbnbforwork.com/resource/digital-nomads-find-the-perfect-solution-to-work-and-live-remotely-while-traveling-the-globe/>
+-   Airbnb. (2021, January 27). Digital nomads find the perfect solution to work and live remotely while traveling the globe. Airbnb for Work. <https://www.Airbnbforwork.com/resource/digital-nomads-find-the-perfect-solution-to-work-and-live-remotely-while-traveling-the-globe/>
 
--   Airbnb Guide to Live and Work Anywhere: How Communities Can Benefit from Remote Workers. (2022). In Airbnb. Geraadpleegd op 15 maart 2023, van <https://news.Airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Guide-to-Live-and-Work-Anywhere-15-September-2022-1.pdf>
+-   Airbnb Guide to Live and Work Anywhere: How Communities Can Benefit from Remote Workers. (2022). In Airbnb. Retrieved March 15, 2023, from <https://news.Airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Guide-to-Live-and-Work-Anywhere-15-September-2022-1.pdf>
 
--   Dubois, J., & Dubois, J. (2023, 22 februari). Digital Nomad and Remote Worker Guide to Living in Airbnbs. Deskless Nomad. <https://www.desklessnomad.com/remote-worker-guide-living-Airbnbs/#>:\~:text=Airbnb%20is%20a%20great%20way,set%20of%20challenges%20and%20considerations
+-   Dubois, J., & Dubois, J. (2023, February 22). Digital Nomad and Remote Worker Guide to Living in Airbnbs. Deskless Nomad. <https://www.desklessnomad.com/remote-worker-guide-living-Airbnbs/#>:\~:text=Airbnb%20is%20a%20great%20way,set%20of%20challenges%20and%20considerations
 
--   Masson, T. (2022a, februari 16). 2022 Airbnb strategy \| Rental Scale-Up. Rental Scale-Up. <https://www.rentalscaleup.com/2022-Airbnb-strategy/>
+-   Masson, T. (2022a, February 16). 2022 Airbnb strategy \| Rental Scale-Up. Rental Scale-Up. <https://www.rentalscaleup.com/2022-Airbnb-strategy/>
 
--   Masson, T. (2022b, september 21). Airbnb's advice and data on how to attract digital nomads to your vacation rentals \| Rental Scale-Up. Rental Scale-Up. <https://www.rentalscaleup.com/Airbnbs-advice-and-data-on-how-to-attract-digital-nomads/>
+-   Masson, T. (2022b, September 21). Airbnb's advice and data on how to attract digital nomads to your vacation rentals \| Rental Scale-Up. Rental Scale-Up. <https://www.rentalscaleup.com/Airbnbs-advice-and-data-on-how-to-attract-digital-nomads/>
 
 ## About
 
-This respository was made by [Lisa Holling](https://github.com/Lisa-Holling) and [Roos van Sambeek](https://github.com/roosvansambeek) and was appointed by Hannes Datta, professor at Tilburg University. This project was part of the course 'Data Preparation and Workflow Management'.
+This respository was created by [Lisa Holling](https://github.com/Lisa-Holling) and [Roos van Sambeek](https://github.com/roosvansambeek) and was appointed by Hannes Datta, professor at Tilburg University. This project was part of the course 'Data Preparation and Workflow Management'.
