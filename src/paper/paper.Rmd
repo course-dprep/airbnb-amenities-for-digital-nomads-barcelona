@@ -1,5 +1,5 @@
 ---
-title: "The importance of amenities in AirBnb's for digital nomads in Barcelona"
+title: "The importance of amenities in Airbnb's for digital nomads in Barcelona"
 output:
   pdf_document: default
   html_document:
@@ -22,16 +22,25 @@ library(ggplot2)
 counts <- read_csv("../../gen/analysis/input/counts.csv")
 counts2 <- read_csv("../../gen/analysis/input/counts2.csv")
 wide_df100 <- read_csv("../../gen/analysis/input/wide_df100.csv")
-#listing_type <- 
-#listing_type2 <- 
+df_significant_amenities_100_2 <- read_csv("../../gen/analysis/output/df_significant_amenities_100_2.csv")
+df_significant_amenities_100 <- read_csv("../../gen/analysis/output/df_significant_amenities_100.csv")
+listing_type <- read_csv("../../gen/data-preparation/output/listing_type.csv")
+listing_type2 <- read_csv("../../gen/data-preparation/output/listing_type2.csv")
 ```
+# Paper
 
-# Regression output
+In this project we aimed to answer the research question:
+*How can an Airbnb landlord make their listing more attractive with respect to amenities for long-term rentals?*
 
-## Regression 1
+In this short paper, we summarize, visualize and discuss the results of our regression analyses.
+
+
+## Results
+
+### Regression 1
 In the code below from `regression1.R` we illustrate once again how we obtain our regression output. In regression1, we define long-term listings as listings that are booked for more than 28 days. 
 
-In total we have this many short-listings and longs-listings:
+In total we have this amount of short-listings and longs-listings:
 ```{r}
 listing_type_long <- listing_type %>% filter(listing_type == "long") 
 print(c("Long-listings:", length(listing_type_long$listing_type)))
@@ -65,16 +74,16 @@ for (dep_var in dep_vars) {
 
 ```
 
-The function and loop above returns amenities that are significantly more available in long-term listings compared to short-term listings. It stores this in the list called `significant_amenities_100`. If we print this list, we see the 20 amenities that are thus more available in long-term AirBnb's (>28 days).
+The function and loop above returns amenities that are significantly more available in long-term listings compared to short-term listings. It stores this in a list called `significant_amenities_100`. If we print this list, we see the 20 amenities that are thus more available in long-term booked Airbnb's (>28 days).
 
 ```{r echo=FALSE}
-print(significant_amenities_100)
+print(df_significant_amenities_100)
 ```
 
-## Regression 2
+### Regression 2
 For our second regression, `regression2.R`, we obtained our regression output with the same loops as for `regression1.R`. However, in regression2 we define long-term listings as listings that are booked for more than 56 days. We do this because the group of long-listings identified as >28 days booked is way larger than the short-listings group. 
 
-In total we have this many short-listings and longs-listings:
+In total we have this amount of short-listings and longs-listings:
 ```{r}
 listing_type_long2 <- listing_type2 %>% filter(listing_type == "long") 
 print(c("Long-listings:", length(listing_type_long2$listing_type)))
@@ -85,17 +94,18 @@ print(c("Short-listings:", length(listing_type_short2$listing_type)))
 ```
 
 
-The same function and loop as with regression1 returns amenities that are significantly more available in long-term listings compared to short-term listings, but stores this in the list called `significant_amenities_100_2`. If we print this list, we see the 19 amenities that are thus more available in long-term AirBnb's (>56 days).
+The same function and loop as with regression1 returns amenities that are significantly more available in long-term listings compared to short-term listings, but stores this in a list called `significant_amenities_100_2`. If we print this list, we see the 19 amenities that are thus more available in long-term booked Airbnb's (>56 days).
 
-```{r}
-print(significant_amenities_100_2)
+```{r echo=FALSE}
+print(df_significant_amenities_100_2)
 ```
 
 
-# Plots
+## Visualization
 
+### Regression 1
 We can visualize our results with the use of the `ggplot2` package. 
-The plot below contains the 20 amenities that are more available in long-term listings. It shows the **proportion** of AirBnB's (both long-term and short-term listings) that contain these amenities. 
+The plot below contains the amenities that are more available in long-term listings. It shows the **proportion** of Airbnb's (both long-term and short-term listings) that contain these amenities. 
 
 ```{r echo=FALSE}
 # Data input
@@ -107,7 +117,7 @@ ggplot(data = counts, aes(x = reorder(amenities, -prop_long), decreasing = TRUE)
   
 # Theme and text
   scale_fill_manual(values = c("lightcoral","brown4")) +
-  labs(title = "Proportion of AirBnB listings containing amenities",
+  labs(title = "Proportion of Airbnb listings containing amenities",
        x = "Amenities",
        y = "Proportion",
        fill = "") +
@@ -117,9 +127,8 @@ ggplot(data = counts, aes(x = reorder(amenities, -prop_long), decreasing = TRUE)
 
 ```
 
-## Regression2
-We can visualize our results with the use of the `ggplot2` package. 
-The plot below contains the 19 amenities that are more available in long-term listings. It shows the **proportion** of AirBnB's (both long-term and short-term listings) that contain these amenities. 
+### Regression 2
+The plot below contains the amenities that are more available in long-term listings. It shows the **proportion** of Airbnb's (both long-term and short-term listings) that contain these amenities. 
 
 ```{r echo=FALSE}
 # Data input
@@ -131,7 +140,7 @@ ggplot(data = counts2, aes(x = reorder(amenities, -prop_long), decreasing = TRUE
   
 # Theme and text
   scale_fill_manual(values = c("lightcoral","brown4")) +
-  labs(title = "Proportion of AirBnB listings containing amenities",
+  labs(title = "Proportion of Airbnb listings containing amenities",
        x = "Amenities",
        y = "Proportion",
        fill = "") +
@@ -141,7 +150,11 @@ ggplot(data = counts2, aes(x = reorder(amenities, -prop_long), decreasing = TRUE
 
 ```
 
-# Discussion
+## Discussion
+Based on data that we retrieved on March 25, 2023 from the <http://insideAirbnb.com/> website, we ran our two regressions. In the first regression, where we defined long-term listings as bookings over 28 days, we see that there are 20 amenities that are important for longer term stays. For our second regression, with long-term listings defined as booked over 56 days, a list of 19 significant amenities is returned. 
 
+In both regressions, the biggest important amenity for long-term listings is wifi, followed by a kitchen, essentials, hangers, and a washer. There are other important amenities that are less common in listings overall, but still more wanted for long-term stays, such as a clothing storage closet, free street parking, and an oven. Intuitively, these results match with common wants and needs of digital nomads. However, this research adds to this common knowledge, because we were able to draw conclusions based on a very big and reliable dataset of actual booking and amenities information of Airbnb listings in Barcelona. 
+
+To conclude, digital nomads have certain wants and needs, such as wifi, a kitchen, and storage space. Both our regressions return a list of amenities that show some of these specific wants and needs. Airbnb landlords are thus adviced to add on or more of these amenities, if they want to become more attractive to digital nomads.  
 
 
