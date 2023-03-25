@@ -1,10 +1,13 @@
 ---
-title: "The importance of amenities in Airbnb's for digital nomads in Barcelona"
+title: "The Importance of Amenities in Airbnb's for Digital Nomads in Barcelona"
 output:
-  pdf_document: default
+  pdf_document: 
+    toc: yes
+    fig_height: 3.7
+    fig_caption: yes
   html_document:
     df_print: paged
-date: "2023-03-22"
+date: "2023-03-25"
 ---
 
 ```{r setup, include=FALSE}
@@ -27,21 +30,22 @@ df_significant_amenities_100 <- read_csv("../../gen/analysis/output/df_significa
 listing_type <- read_csv("../../gen/data-preparation/output/listing_type.csv")
 listing_type2 <- read_csv("../../gen/data-preparation/output/listing_type2.csv")
 ```
-# Paper
 
+
+# Introduction
 In this project we aimed to answer the research question:
 *How can an Airbnb landlord make their listing more attractive with respect to amenities for long-term rentals?*
 
 In this short paper, we summarize, visualize and discuss the results of our regression analyses.
 
 
-## Results
+# Results
 
-### Regression 1
-In the code below from `regression1.R` we illustrate once again how we obtain our regression output. In regression1, we define long-term listings as listings that are booked for more than 28 days. 
+## Regression 1
+In the code below from `regression1.R` we illustrate how we obtain our regression output. In regression1, we define long-term listings as listings that are booked for more than 28 days. 
 
 In total we have this amount of short-listings and longs-listings:
-```{r}
+```{r echo=FALSE}
 listing_type_long <- listing_type %>% filter(listing_type == "long") 
 print(c("Long-listings:", length(listing_type_long$listing_type)))
 
@@ -80,11 +84,11 @@ The function and loop above returns amenities that are significantly more availa
 print(df_significant_amenities_100)
 ```
 
-### Regression 2
+## Regression 2
 For our second regression, `regression2.R`, we obtained our regression output with the same loops as for `regression1.R`. However, in regression2 we define long-term listings as listings that are booked for more than 56 days. We do this because the group of long-listings identified as >28 days booked is way larger than the short-listings group. 
 
 In total we have this amount of short-listings and longs-listings:
-```{r}
+```{r echo=FALSE}
 listing_type_long2 <- listing_type2 %>% filter(listing_type == "long") 
 print(c("Long-listings:", length(listing_type_long2$listing_type)))
 
@@ -101,9 +105,9 @@ print(df_significant_amenities_100_2)
 ```
 
 
-## Visualization
+# Visualization
 
-### Regression 1
+## Regression 1
 We can visualize our results with the use of the `ggplot2` package. 
 The plot below contains the amenities that are more available in long-term listings. It shows the **proportion** of Airbnb's (both long-term and short-term listings) that contain these amenities. 
 
@@ -127,7 +131,7 @@ ggplot(data = counts, aes(x = reorder(amenities, -prop_long), decreasing = TRUE)
 
 ```
 
-### Regression 2
+## Regression 2
 The plot below contains the amenities that are more available in long-term listings. It shows the **proportion** of Airbnb's (both long-term and short-term listings) that contain these amenities. 
 
 ```{r echo=FALSE}
@@ -150,7 +154,7 @@ ggplot(data = counts2, aes(x = reorder(amenities, -prop_long), decreasing = TRUE
 
 ```
 
-## Discussion
+# Discussion
 Based on data that we retrieved on March 25, 2023 from the <http://insideAirbnb.com/> website, we ran our two regressions. In the first regression, where we defined long-term listings as bookings over 28 days, we see that there are 20 amenities that are important for longer term stays. For our second regression, with long-term listings defined as booked over 56 days, a list of 19 significant amenities is returned. 
 
 In both regressions, the biggest important amenity for long-term listings is wifi, followed by a kitchen, essentials, hangers, and a washer. There are other important amenities that are less common in listings overall, but still more wanted for long-term stays, such as a clothing storage closet, free street parking, and an oven. Intuitively, these results match with common wants and needs of digital nomads. However, this research adds to this common knowledge, because we were able to draw conclusions based on a very big and reliable dataset of actual booking and amenities information of Airbnb listings in Barcelona. 
