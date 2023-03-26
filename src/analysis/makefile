@@ -24,5 +24,5 @@ $(DAINPUT)/counts2.csv: previsualization2.R
 	Rscript previsualization2.R
 	
 # Making the R-markdown file with visual results
-$(PAPER)/paper.Rmd: regression2.R previsualization2.R regression1.R previsualization.R
+$(PAPER)/paper.Rmd $(PAPER)/paper.pdf: regression2.R previsualization2.R regression1.R previsualization.R
 	Rscript regression1.R previsualization2.R regression2.R previsualization.R

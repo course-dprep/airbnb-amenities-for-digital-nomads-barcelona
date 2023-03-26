@@ -7,7 +7,7 @@ library(stringi)
 library(magrittr)
 
 # Load data
-listings_joined_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined2_cleaned.csv')
+listings_joined_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined_cleaned.csv')
 
 # Clean amenities.R
 ## Subset only amenities column and store in amenities_df
