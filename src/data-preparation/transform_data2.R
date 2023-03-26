@@ -11,11 +11,10 @@ library(readr)
 calendar_updated <- read_csv("../../gen/data-preparation/input/calendar_updated.csv")
 listings_unsorted <- read_csv("../../data/dataset2.csv")
 
-# Regression
-## New dataframe with only listing_id's > 56
+# New dataframe with only listing_id's > 56
 listings_long2 <- calendar_updated %>% group_by(listing_id) %>% filter(consecutive_count >= 56)
 
-## New dataframe with only listing_id's < 56 
+# New dataframe with only listing_id's < 56 
 listings_short2 <- calendar_updated %>% anti_join(listings_long2, by = "listing_id") %>% group_by(listing_id) %>% filter(consecutive_count < 56) 
 
 ## Only return unique listing_id's
@@ -26,9 +25,9 @@ listings_short2 <- unique(listings_short2$listing_id)
 sum(length(listings_long2), length(listings_short2)) 
 length(unique(calendar_updated$listing_id)) 
 
-## Format the new lists
+# Format the new lists
 
-### Create a tibble with the listings_long and listings_short
+## Create a tibble with the listings_long and listings_short
 listing_type2 <- tibble(listing_id = c(listings_long2, listings_short2),
                          listing_type = c(rep("long", length(listings_long2)),
                                             rep("short", length(listings_short2))))

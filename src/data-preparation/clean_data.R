@@ -4,7 +4,6 @@ library(readr)
 library(stringr)
 library(lubridate)
 
-
 # Load data
 listings_joined <- read_csv('../../gen/data-preparation/output/listings_joined.csv')
 
@@ -16,12 +15,10 @@ listings_joined <- listings_joined %>% filter(!is.na(listings_joined$beds))
 listings_joined <- listings_joined %>% 
   mutate(bedrooms = ifelse(is.na(bedrooms), 0, bedrooms))
 
-# Bathrooms: remove 9 NA's
+## Bathrooms: remove 9 NA's
 listings_joined <- listings_joined %>% filter(!is.na(listings_joined$bathrooms_text))
   
-# Check NA's for characters
-  
-  
+
 # Mutate columns
 ## Bathrooms
 ### private / shared
@@ -33,19 +30,19 @@ listings_joined <- listings_joined %>%
 listings_joined <- listings_joined %>% 
   mutate(room_shared = ifelse(grepl("shared", room_type, ignore.case = TRUE), "shared", "private"))
 
-##strip text
+## Strip text
 listings_joined <- listings_joined %>% 
   mutate(baths_numeric = str_extract(listings_joined$bathrooms_text, "\\d+\\.?\\d*"))  
 
-
-#Character to numeric + round
+## Character to numeric + round
 listings_joined <- listings_joined %>% 
   mutate(baths_numeric2 = round(as.numeric(baths_numeric), 0)) # or as.double(my_col)
 
-#Changing the 50 NA's to value 1
+## Changing the 50 NA's to value 1
 listings_joined_cleaned <- listings_joined %>% 
   mutate(baths_numeric2 = ifelse(is.na(baths_numeric2), 1, baths_numeric2))
 
+# Create dataframe listings_joined_cleaned
 listings_joined_cleaned <- data.frame(listings_joined_cleaned)
 
 # Store data
