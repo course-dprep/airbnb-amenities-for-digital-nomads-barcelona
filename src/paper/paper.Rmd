@@ -155,7 +155,7 @@ ggplot(data = counts2, aes(x = reorder(amenities, -prop_long), decreasing = TRUE
 ```
 
 # Discussion
-Based on data that we retrieved on March 25, 2023 from the <http://insideAirbnb.com/> website, we ran our two regressions. In the first regression, where we defined long-term listings as bookings over 28 days, we see that there are 20 amenities that are important for longer term stays. For our second regression, with long-term listings defined as booked over 56 days, a list of 19 significant amenities is returned. 
+Based on the data that we retrieved on March 25, 2023 from the <http://insideAirbnb.com/> website, we ran our two regressions. In the first regression, where we defined long-term listings as bookings over 28 days, we see that there are 20 amenities that are important for longer term stays. For our second regression, with long-term listings defined as booked over 56 days, a list of 19 significant amenities is returned. 
 
 In both regressions, the biggest important amenity for long-term listings is wifi, followed by a kitchen, essentials, hangers, and a washer. There are other important amenities that are less common in listings overall, but still more wanted for long-term stays, such as a clothing storage closet, free street parking, and an oven. Intuitively, these results match with common wants and needs of digital nomads. However, this research adds to this common knowledge, because we were able to draw conclusions based on a very big and reliable dataset of actual booking and amenities information of Airbnb listings in Barcelona. 
 
