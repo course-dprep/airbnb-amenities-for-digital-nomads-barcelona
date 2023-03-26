@@ -10,7 +10,6 @@ library(magrittr)
 listings_joined_cleaned <- read_csv('../../gen/data-preparation/output/listings_joined_cleaned.csv')
 
 # Clean amenities.R
-
 ## Subset only amenities column and store in amenities_df
 amenities_df <- subset(listings_joined_cleaned, select = c(amenities, id, listing_type))
 
@@ -24,7 +23,7 @@ amenities_df$amenities <- gsub("^\\s+|\\s+$|\"", "", amenities_df$amenities)
 ## Remove the square brackets
 amenities_df$amenities <- str_replace_all(amenities_df$amenities, "\\[|\\]","")
 
-## Remove the white spaces; - ; \ ; / ; +
+## Remove the white spaces; - ; \ ; / ; + ; ( ; )
 amenities_df$amenities <- gsub(" ", "_", amenities_df$amenities)
 amenities_df$amenities <- gsub("-", "_", amenities_df$amenities)
 amenities_df$amenities <- gsub("\\\\", "", amenities_df$amenities)
@@ -41,8 +40,6 @@ amenity_counts <- amenities_df %>%
   group_by(amenities) %>% 
   summarize(count = n()) %>% 
   arrange(desc(count))
-
-head(amenity_counts)
 
 ## Filter for short stays
 amenity_counts_short <- amenities_df %>% 
@@ -86,8 +83,8 @@ wide_df <- pivot_wider(all_amenities,
 write_csv(wide_df, "../../gen/analysis/input/wide_df.csv")
 
 
-# Dataset: only first 100 amenities
-## Filtering for the first 100 amenities
+# Create list with only largest 100 amenities
+## Filtering for the largest 100 amenities
 counts_long_short100 <- counts_long_short %>% slice(1:100)
 common_amenities100 <- counts_long_short100$amenities
 
@@ -96,16 +93,7 @@ common_amenities100 <- counts_long_short100$amenities
 filtered_amenities_df100 <- amenities_df %>%
   filter(amenities %in% common_amenities100)
 
-## From long to wide dataframe
-wide_df100 <- pivot_wider(filtered_amenities_df100, 
-                          id_cols = c("id", "listing_type"), 
-                          names_from = "amenities", 
-                          values_from = "amenities", 
-                          values_fn = function(x) ifelse(length(x) > 0, "yes", "no"), 
-                          values_fill = "no", 
-                          names_prefix = "has_")
-
-## Numeric instead of yes and no 
+## From long to wide dataframe, with dummy variables
 wide_df100 <- pivot_wider(filtered_amenities_df100, 
                           id_cols = c("id", "listing_type"), 
                           names_from = "amenities", 
