@@ -62,4 +62,4 @@ listings_sorted <- subset(listings_unsorted, select = c(id, name, neighbourhood,
 # Store data
 write_csv(listing_type, "../../gen/data-preparation/output/listing_type.csv")
 write_csv(listings_sorted, "../../gen/data-preparation/output/listings_sorted.csv")
-write_csv(calendar_updated, "../../gen/data-preparation/input/calendar_updated.csv.gz")
+write_csv(calendar_updated, "../../gen/data-preparation/input/calendar_updated.csv")

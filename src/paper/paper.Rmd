@@ -39,7 +39,7 @@ In this project we aimed to answer the research question:
 In this short paper, we summarize, visualize and discuss the results of our regression analyses.
 
 
-# Results
+## Results
 
 ## Regression 1
 In the code below from `regression1.R` we illustrate how we obtain our regression output. In regression1, we define long-term listings as listings that are booked for more than 28 days. 

@@ -10,8 +10,8 @@ $(DATA)/dataset1.csv $(DATA)/dataset2.csv: download_data.R
 	Rscript download_data.R 
 
 # Transform data
-$(OUTPUT)/listing_type.csv $(OUTPUT)/listings_sorted.csv $(INPUT)/calendar_updated.csv: transform_data.R
-	Rscript transform_data.R
+$(OUTPUT)/listing_type.csv $(OUTPUT)/listings_sorted.csv $(INPUT)/calendar_updated.csv: transform_data1.R
+	Rscript transform_data1.R
 	
 # Merge datasets
 $(OUTPUT)/listings_joined.csv: merge_data.R
