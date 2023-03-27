@@ -63,6 +63,8 @@ amenity_counts2_long <- amenity_counts2_long %>%
 
 ## Join two df with counts
 counts_long_short2 <- inner_join(amenity_counts2_long, amenity_counts2_short, by = c("amenities"), suffix = c("_long","_short"))
+
+# Store data
 write_csv(counts_long_short2, "../../gen/analysis/input/counts_long_short2.csv")
 
 ## Create regression subset with all amenities
@@ -71,7 +73,7 @@ amenities <- counts_long_short2$amenities
 all_amenities <- amenities_df2 %>%
   filter(amenities %in% amenities)
 
-## Numeric  
+## From long to wide pivot
 wide_df <- pivot_wider(all_amenities, 
                        id_cols = c("id", "listing_type"), 
                        names_from = "amenities", 
@@ -80,6 +82,7 @@ wide_df <- pivot_wider(all_amenities,
                        values_fill = 0
                        ,names_prefix = "has_")
 
+# Store data
 write_csv(wide_df, "../../gen/analysis/input/wide_df2.csv")
 
 

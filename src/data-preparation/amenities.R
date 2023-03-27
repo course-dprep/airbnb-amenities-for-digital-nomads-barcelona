@@ -71,7 +71,7 @@ amenities <- counts_long_short$amenities
 all_amenities <- amenities_df %>%
   filter(amenities %in% amenities)
 
-## Numeric  
+## From long to wide dataframe, with dummy variables 
 wide_df <- pivot_wider(all_amenities, 
                        id_cols = c("id", "listing_type"), 
                        names_from = "amenities", 
@@ -80,6 +80,7 @@ wide_df <- pivot_wider(all_amenities,
                        values_fill = 0
                        ,names_prefix = "has_")
 
+# Store data
 write_csv(wide_df, "../../gen/analysis/input/wide_df.csv")
 
 

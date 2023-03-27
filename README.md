@@ -6,7 +6,7 @@ The objective of this project is to examine the Airbnb market of Barcelona, with
 
 According to research, the number of people working remotely almost doubled between 2019 and 2021. Moreover, in July 2022, remote work listings accounted for 17% of the total listings on LinkedIn. Although remote workers don't have a fixed place to work, they do need a place to stay and work for a certain period of time (usually for around a month or longer). Airbnb is the biggest platform to find long-term stays and is widely used among digital nomads. According to Airbnb, their 'Live anywhere on Airbnb' trial program aims to simplify the process of staying in an Airbnb for a longer time. Implementation of this program already accounted for a 22% increase in long-term bookings which are stays of over 28 nights or more.
 
-People that want to stay and work in an Airbnb for an extended period, may be looking for a room with specific amenities, which may also differ from normal stays. For instance, digital nomads appreciate having a separate bedroom, a fully equipped kitchen, and good WiFi. This project therefore investigates which amenities in specific are most important to Digital Nomads, and thus how landlords can respond to the increasing request for long-term rentals.
+People that want to stay and work in an Airbnb for an extended period, may be looking for a place with specific amenities, which may also differ from normal stays. For instance, digital nomads state to appreciate having a separate bedroom, a fully equipped kitchen, and stable WIFI. This project investigates in more specific which amenities are most important to digital nomads, and thus how landlords can respond to the increasing request for long-term rentals.
 
 ### Research question
 
@@ -19,7 +19,6 @@ In a city such as Barcelona there are many people who want to rent a room for a 
 To address our research question, we investigated the difference between long and short-term stays (independent variable) in terms of the different amenities that were present (dependent variable). For the first (linear) regression, we decided that an Airbnb listing was called 'long' if it was booked for a period of 28 days or longer and 'short' if it was booked for less than 28 days. Furthermore, we only took the 100 most popular amenities for this first regression, as the number of amenities was rather large.
 
 For the second regression an Airbnb listing was considered 'long' if it was booked for a period longer than 58 days (almost 2 months) and 'short' if it was booked for less than 58 days. By increasing the amount of days, it is more likely that we really capture the needs of digital nomads. This is because the 28 days which defines a 'long' listing in the first linear regression, could also be a longer-vacation. Therefore this second regression was executed to see if the amenities that were significantly more present in long versus short listings would change with the booking time.
-
 
 ### Repository overview
 
@@ -45,7 +44,7 @@ Please follow the installation guides on <https://tilburgsciencehub.com> for:
 
 -   Make: [installation guide](https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/)
 
-After installation of both R and Make you can run the code of this project (see running instructions, next paragraph). Before running make sure that you have all packages installed that are listed below or run the R script listed in our repository called `install_packages.R`:
+After installation of both R and Make you can run the code of this project (see running instructions, next paragraph). Before running make sure that you have all packages installed that are listed below or run the R script listed in our repository called `install_packages.R`:
 
 <div>
 
