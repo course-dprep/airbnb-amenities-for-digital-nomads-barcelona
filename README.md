@@ -68,16 +68,14 @@ Before the detailed running instructions, we want to inform you that running the
 
 1.  Open your command line / terminal (preferably in R) and run the following code:
 
-```{=html}
 <!-- -->
-```
+
     git clone https://github.com/course-dprep/team-assignment-team-4-1.git
 
 2.  Set your working directory in R to "To Project Directory" under session and run the following command in your R terminal:
 
-```{=html}
 <!-- -->
-```
+
     make
 
 This will run the entire code and provide you with an R-markdown document (see: src/paper), which visualizes for what kind of amenities demand increases for long-term listings as opposed to short-term listings.
