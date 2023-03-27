@@ -90,7 +90,7 @@ To clean all the unnecessary data files that were created in this project pipeli
 
 -   Airbnb Guide to Live and Work Anywhere: How Communities Can Benefit from Remote Workers. (2022). In Airbnb. Retrieved March 15, 2023, from <https://news.Airbnb.com/wp-content/uploads/sites/4/2022/09/Airbnb-Guide-to-Live-and-Work-Anywhere-15-September-2022-1.pdf>
 
--   Dubois, J., & Dubois, J. (2023, February 22). Digital Nomad and Remote Worker Guide to Living in Airbnbs. Deskless Nomad. <https://www.desklessnomad.com/remote-worker-guide-living-Airbnbs/#
+-   Dubois, J., & Dubois, J. (2023, February 22). Digital Nomad and Remote Worker Guide to Living in Airbnbs. Deskless Nomad. https://www.desklessnomad.com/remote-worker-guide-living-Airbnbs
 
 -   Masson, T. (2022a, February 16). 2022 Airbnb strategy \| Rental Scale-Up. Rental Scale-Up. <https://www.rentalscaleup.com/2022-Airbnb-strategy/>
 
