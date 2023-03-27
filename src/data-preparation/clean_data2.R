@@ -8,14 +8,14 @@ library(lubridate)
 listings_joined2 <- read_csv('../../gen/data-preparation/output/listings_joined2.csv')
 
 # Missing values
-## Beds: remove 273 NA's
+## Beds: remove NA's
 listings_joined2 <- listings_joined2 %>% filter(!is.na(listings_joined2$beds))
 
 ## Bedrooms: NA's -> 0 (studio)
 listings_joined2 <- listings_joined2 %>% 
   mutate(bedrooms = ifelse(is.na(bedrooms), 0, bedrooms))
 
-## Bathrooms: remove 9 NA's
+## Bathrooms: remove NA's
 listings_joined2 <- listings_joined2 %>% filter(!is.na(listings_joined2$bathrooms_text))
 
 
@@ -38,7 +38,7 @@ listings_joined2 <- listings_joined2 %>%
 listings_joined2 <- listings_joined2 %>% 
   mutate(baths_numeric2 = round(as.numeric(baths_numeric), 0)) # or as.double(my_col)
 
-## Changing the 50 NA's to value 1
+## Changing the NA's to value 1
 listings_joined2_cleaned <- listings_joined2 %>% 
   mutate(baths_numeric2 = ifelse(is.na(baths_numeric2), 1, baths_numeric2))
 

@@ -16,7 +16,6 @@ for (dep_var in dep_vars) {
   print(summary(model))
 }
 
-
 # Create a list with only significant amenities
 ## empty list
 significant_amenities_100 <- c()
